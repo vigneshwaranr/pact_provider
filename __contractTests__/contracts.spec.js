@@ -9,7 +9,9 @@ describe('Pact Verification', () => {
         app.listen(SERVER_PORT, () => { done() })
     })
 
-    it('should verify contract for Book API', (done) => {
+    it('should verify contract for Book API', function (done) {
+        this.timeout(30000)
+        
         let opts = {
             provider: 'BookAPI',
             providerBaseUrl: `http://localhost:${SERVER_PORT}`,
